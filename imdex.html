@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-left">
+      <h1>
+        <span id="typed-text"></span><span class="cursor">|</span>
+      </h1>
+    </div>
+
+    <div class="hero-right">
+      <img src="my own pic.png" alt="My Picture">
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+      I am a creative and skilled individual who works with HTML, CSS, and JavaScript.
+      I also create TikTok videos, run YouTube channels, generate SEO-based content ideas,
+      manage Facebook pages, and design product posters. My goal is to combine creativity
+      and technology to build strong digital brands.
+    </p>
+  </section>
+
+  <section class="section" id="skills">
+    <h2>My Skills</h2>
+    <div class="skills-list">
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>JavaScript</span>
+      <span>SEO Content Ideas</span>
+      <span>TikTok Video Creation</span>
+      <span>YouTube Channel Management</span>
+      <span>Facebook Page Creation</span>
+      <span>Product Poster Design</span>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <h2>My Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" />
+        <h3>Portfolio Website</h3>
+        <p>Dark theme portfolio made with HTML, CSS, JS.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" />
+        <h3>YouTube Content Setup</h3>
+        <p>SEO titles, thumbnails, and content strategy.</p>
+      </div>
+
+      <div class="project-card">
+        <img src="https://via.placeholder.com/300x200" />
+        <h3>Poster Designing</h3>
+        <p>Social media poster designing for brands.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="contact">
+    <h2>Contact Me</h2>
+    <form action="https://formspree.io/f/mayyljez" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="social-icons">
+      <a><img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"></a>
+      <a><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"></a>
+      <a><img src="https://cdn-icons-png.flaticon.com/512/3670/3670032.png"></a>
+      <a><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"></a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 My Portfolio — All Rights Reserved
+  </footer>
+
+  <!-- Typing Text Script -->
+  <script>
+    const texts = [
+      "Hello, I'm Arman",
+      "I am a Web Designer",
+      "I am a Social Media Expert",
+      "I create SEO-based Content Ideas"
+    ];
+
+    let currentText = 0;
+    let charIndex = 0;
+    let typingSpeed = 100;
+    let deletingSpeed = 50;
+    let pauseBetween = 1500;
+
+    const typedText = document.getElementById("typed-text");
+
+    function type() {
+      if (charIndex < texts[currentText].length) {
+        typedText.textContent += texts[currentText][charIndex];
+        charIndex++;
+        setTimeout(type, typingSpeed);
+      } else {
+        setTimeout(deleteText, pauseBetween);
+      }
+    }
+
+    function deleteText() {
+      if (charIndex > 0) {
+        typedText.textContent = texts[currentText].substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(deleteText, deletingSpeed);
+      } else {
+        currentText = (currentText + 1) % texts.length;
+        setTimeout(type, typingSpeed);
+      }
+    }
+
+    type();
+  </script>
+
+</body>
+</html>
